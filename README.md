@@ -14,16 +14,17 @@ When builing the table, it's preferable to use `css grid` for rendering table.
 ## Task steps:
 - Level 1:
     - build table of repos out of the `repos` \
-    here is how it might look like: ![Repos.png](/repos-table.png). \
-    Try using CSS Drid for table, if possible.
+    here is how it might look like: \
+    ![Repos.png](/repos-table.png). \
+    Try using [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) for building table, if possible.
 - Level 2:
     - Implement searching functinality. There must be a text field that accespts a user input text, and event hadler for it when user presses Enter key to apply filter by enterd words found `name` or `description`. \
     <br/>
     __Note__, *you don't need `HTML Form` element on you page to make your buttons and input fields work. Use button and input controls as is, because we don't need to send any data to elsewhere, we only need to process clicks and other user inputs and respond to that accordingly*.
 - Level 3:
-    - Implement sorting functionality. There should be a drop down select element with sorting options: `sort by name`, `sort by updated date`
+    - Implement sorting functionality. There should be a drop down select element with sorting options: `sort by: name`, `sort by: updated date`
 - Level 4:
-    - Implement pagination functionality. There should be a drop down select element with a multiple available options for the number of table rows on the page: `10`, `20`, `50`, `100`.
+    - Implement pagination functionality. There should be a drop down select element with a multiple available options for the number of table rows on the page: `10`, `20`, `50`, `100`. If you implement pagination, please add also page control element at the bottom of the page with links `next`, `previous`, `1`, `2`, `3`, etc...
 
 ## If you want to know more:
 If you are interested how to get the full data from Github API refer to this link: [Repositories](https://docs.github.com/en/rest/repos/repos?apiVersion=latest).
