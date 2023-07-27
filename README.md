@@ -12,19 +12,71 @@ You are not supposed to create any static HTML content in `index.html` file. Use
 When builing the table, it's preferable to use `css grid` for rendering table.
 
 ## Task steps:
-- Level 1:
-    - build table of repos out of the `repos` \
-    here is how it might look like: \
-    ![Repos.png](/repos-table.png). \
-    Try using [CSS Grid](https://css-tricks.com/snippets/css/complete-guide-grid/) for building table, if possible.
-- Level 2:
-    - Implement searching functinality. There must be a text field that accespts a user input text, and event hadler for it when user presses Enter key to apply filter by enterd words found `name` or `description`. \
-    <br/>
-    __Note__, *you don't need `HTML Form` element on you page to make your buttons and input fields work. Use button and input controls as is, because we don't need to send any data to elsewhere, we only need to process clicks and other user inputs and respond to that accordingly*.
-- Level 3:
-    - Implement sorting functionality. There should be a drop down select element with sorting options: `sort by: name`, `sort by: updated date`
-- Level 4:
-    - Implement pagination functionality. There should be a drop down select element with a multiple available options for the number of table rows on the page: `10`, `20`, `50`, `100`. If you implement pagination, please add also page control element at the bottom of the page with links `next`, `previous`, `1`, `2`, `3`, etc...
+Final result should look somewhat like shown at this image:  
+<img src="./Final-view.png"/>  
+100% match is not required though.
+
+We can decompose the implementation in 4 stages as below:
+<ul> 
+    <li>
+        <b>Level 1</b>:
+        <p>
+            Build table of repos out of the `repos`
+        </p>
+        <p>
+            here is how it might look like:
+            <br />
+            <img src="./Level-1-view.png"/>
+        </p>
+        <p>
+            Try using <a href="https://css-tricks.com/snippets/css/complete-guide-grid">CSS Grid</a> for building table, if possible.
+        </p>
+    </li>
+    <li>
+        <b>Level 2</b>:
+        <p>
+            Implement searching functinality. There must be a text field that accespts a user input text, and event hadler for it when user presses Enter key to apply filter by the entered words found in `name` or `description`.
+        </p>
+        <p>
+            <b>Note</b>, <i>you don't need HTML Form element on you page to make your buttons and input fields work. Use button and input controls as is, because we don't need to send any data to elsewhere, we only need to process clicks and other user inputs and respond to that accordingly</i>.
+        </p>
+        <p>
+            Here how is the mock design for this stage might look like:
+            <br />
+            <img src="./Level-2-view.png" />
+        </p>
+    </li>
+    <li>
+        <b>Level 3</b>:
+        <p>
+            Implement sorting functionality. There should be a drop down select element with sorting options: `sort by: name`, `sort by: updated date`. 
+            And there should be a button next to the drop down, that switches direction between `ASC` (Ascending) and `DESC` (Descending). 
+        </p>
+        <p>
+            Default value is "ASC". 
+            <br />
+            If user clisks this button it should switch to "DESC".
+            <br />
+            On the next click it should switch back to "ASC" and so on...
+        </p>
+        <p>
+            Here is the mock:  
+            <br />
+            <img src="./Level-3-view.png" />
+        </p>
+    </li> 
+    <li>
+        <b>Level 4</b>
+        <p>
+            Implement pagination functionality. There should be a drop down select element with a multiple available options for the number of table rows on the page: `10`, `20`, `50`, `100`. If you implement pagination, please add also page control element at the bottom of the page with links `next`, `previous`, `1`, `2`, `3`, etc...
+        </p>
+        <p>
+            Here is the mock:
+            <br />
+            <img src="./Level-4-view.png"/>
+        </p>
+    </li>
+</ul>
 
 ## If you want to know more:
 If you are interested how to get the full data from Github API refer to this link: [Repositories](https://docs.github.com/en/rest/repos/repos?apiVersion=latest).
