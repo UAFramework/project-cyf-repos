@@ -1,0 +1,141 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./common.css">
+    </head>
+    <style>
+        table {
+            max-width: 50%;
+            max-height: 80%;
+            min-width: 20em;
+        }
+
+        table, th, td {
+           border: 1px solid;
+        }
+
+        td, th {
+            padding: 0.5em;
+        }
+
+    </style>
+
+    <body>
+        <div id="root">
+        <!-- 
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Link</th>
+                        <th>Updated At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>build-a-house</td>
+                        <td>null</td>
+                        <td>
+                            <a href="https://github.com/CodeYourFuture/build-a-house">
+                                https://github.com/CodeYourFuture/build-a-house
+                            </a>
+                        </td>
+                        <td>2023-01-28T16:29:49Z</td>
+                    </tr>
+                </tbody>
+            </table> 
+        -->
+        </div>
+
+        <script language="javascript">
+
+            const repos = [
+                {
+                    "id": 71012177,
+                    "name": "build-a-house",
+                    "updated_at": "2023-01-28T16:29:49Z",
+                    "description": null,
+                    "html_url": "https://github.com/CodeYourFuture/build-a-house",
+                    "git_url": "git://github.com/CodeYourFuture/build-a-house.git",
+                    "ssh_url": "git@github.com:CodeYourFuture/build-a-house.git"
+                },
+                {
+                    "id": 71012799,
+                    "name": "css-challenge",
+                    "updated_at": "2023-01-28T16:29:49Z",
+                    "description": null,
+                    "html_url": "https://github.com/CodeYourFuture/css-challenge",
+                    "git_url": "git://github.com/CodeYourFuture/css-challenge.git",
+                    "ssh_url": "git@github.com:CodeYourFuture/css-challenge.git"
+                },
+                {
+                    "id": 71056052,
+                    "name": "HTML-CSS",
+                    "updated_at": "2023-01-28T16:29:51Z",
+                    "description": null,
+                    "html_url": "https://github.com/CodeYourFuture/HTML-CSS",
+                    "git_url": "git://github.com/CodeYourFuture/HTML-CSS.git",
+                    "ssh_url": "git@github.com:CodeYourFuture/HTML-CSS.git"
+                }
+            ];
+
+
+            function createTable(data) {
+                const table = document.createElement("table");
+                const thead = document.createElement("thead");
+                const tbody = document.createElement("tbody");
+                
+               
+                table.append(thead, tbody);
+                
+                const headers = ["Name", "Description", "Link", "Updated At"]
+                .map(header => {
+                    const th = document.createElement("th");
+                    th.innerText = header;
+                    return th;
+                });
+
+                thead.append(...headers);
+
+
+                /**
+                 *  "name": "build-a-house",
+                    "updated_at": "2023-01-28T16:29:49Z",
+                    "description": null,
+                    "html_url": "https://github.com/CodeYourFuture/build-a-house",
+                    
+                    {name, updated_at, description, html_url}
+                */
+                const trows = data
+                    .map( ({name, updated_at, description, html_url}) => {
+                        // create tr 
+                        // create bunch or td elements and set their innerText properties
+                        // add each of td into tr
+                        // return tr
+                        const tr = document.createElement("tr");
+                        
+                        // "Name", "Description", "Link", "Updated At"
+                        const cells = [name, description, html_url, updated_at]
+                        .map(value => {
+                            const td = document.createElement("td");
+                            td.innerText = value;
+                            return td;
+                        });
+                        
+                        tr.append(...cells);
+                        
+                        return tr;
+
+                    });
+
+                // todo: append data rows into tbody
+                tbody.append(...trows);
+                return table;
+            }
+
+            const root = document.querySelector("div#root");
+            const table = createTable(repos);
+            root.appendChild(table);
+        </script>
+    </body>
+</html>
