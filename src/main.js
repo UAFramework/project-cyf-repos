@@ -55,16 +55,19 @@ function createTable(data) {
         .map( ({name, updated_at, description, html_url}) => {
             const tr = document.createElement("tr");
             
-            const tdName = document.createElement("td")
+            const tdName = document.createElement("td");
             tdName.innerText = name;
 
-            const tdDescription = document.createElement("td") 
+            const tdDescription = document.createElement("td");
             tdDescription.innerText = description;
 
-            const tdUrl = document.createElement("td") 
-            tdUrl.innerText = html_url;
+            const tdUrl = document.createElement("td");
+            const a = document.createElement("a");
+            a.href = html_url;
+            a.innerText = html_url;
+            tdUrl.appendChild(a);
                                     
-            const tdUpdatedAt = document.createElement("td")
+            const tdUpdatedAt = document.createElement("td");
             tdUpdatedAt.innerText = updated_at;
 
             tr.append(tdName, tdDescription, tdUrl, tdUpdatedAt);
