@@ -1,4 +1,4 @@
-import repos from "./data/repos.js";
+import { repos } from "./data/repos.js";
 
 // global `options` objects that stores options
 // chosen by the user of the web-page.
@@ -11,7 +11,7 @@ const options = {
     recordsOnPage: 10
 };
 
-export default function buildPage() {
+function buildPage() {
     const root = document.querySelector("div#root");
     root.innerText = "Hello!";
 }
