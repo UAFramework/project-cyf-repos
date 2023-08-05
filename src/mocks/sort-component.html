@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./common.css">
+    </head>
+    <style>
+        #sort-container {
+            max-width: 50%;
+            max-height: 80%;
+            min-width: 50em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: solid 1px #aaa;
+        }
+
+        select {
+            min-width: 40em;
+            margin: 0.5em 0.5em;
+            align-items: center;
+            justify-content: center;
+            align-content: stretch;
+        }
+
+    </style>
+
+    <body>
+        <div id="root">
+            <div id="sort-container">
+                <select>
+                    <option value="name">Name</option>
+                    <option value="updated_at">Updated At</option>
+                </select>
+                <button value="asc">A-Z &darr;</button>
+                <!-- 
+                    <button value="desc">Z-A &uarr;</button>
+                    
+                    more here:
+                    https://www.w3schools.com/charsets/ref_utf_arrows.asp
+                -->
+            </div>
+        </div>
+    </body>
+</html>
