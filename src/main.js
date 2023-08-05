@@ -5,7 +5,7 @@ import { repos } from "./data/repos.js";
 const options = {
     filterby: null,
     sortBy: {
-        field: null,
+        field: "name",
         direction: "asc" // "asc" | "desc"
     },
     recordsOnPage: 10
@@ -32,45 +32,8 @@ function search(searchTerm) {
 
     options.filterby = searchTerm;
 
-    const filteredRepos = repos.filter(({name, description}) => 
-            name.includes(searchTerm || 
-                (description != null && description.includes(searchTerm))
-    ));
-
-    // condition1 || (condition2.1 && condition2.2)
-
-    // check if we need to sort.
-    if (options.sortBy.field != null) {
-        filteredRepos.sort((repo1, repo2) => {
-            const a = null;
-            const b = null;
-
-            if (options.sortBy.field == "name") {                
-                a = repo1.name;
-                b = repo2.name;
-            }
-
-            if (options.sortBy.field == "updated_at") {
-                a = new Date(repo1.updated_at);
-                b = new Date(repo2.updated_at);
-            }
-
-            if (a > b) {
-                return 1;
-            };
-
-            if (a < b) {
-                return -1;
-            };
-
-            return 0;
-
-        });
-    }
-
     // refresh/ubdate table
-    const trows = convertTotableRows(filteredRepos)
-    
+    const trows = convertReposToTableRows(repos)
     const tbody = document.querySelector("table > tbody");
     tbody.replaceChildren(...trows);
     
@@ -89,8 +52,45 @@ function setPagination(recordsOnPage) {
 }
 
 
-function convertTotableRows(repos) {
-    return repos
+function convertReposToTableRows(repos) {
+
+    const filteredRepos = options.filterby == null ? [...repos] :
+        repos.filter(({name, description}) => 
+                // condition1 || (condition2.1 && condition2.2)
+                name.includes(options.filterby || 
+                    (description != null && description.includes(options.filterby))
+        ));
+
+    // check if we need to sort.
+    if (options.sortBy.field != null) {
+        filteredRepos.sort((repo1, repo2) => {
+            let a = null;
+            let b = null;
+
+            if (options.sortBy.field === "name") {                
+                a = repo1.name;
+                b = repo2.name;
+            }
+
+            if (options.sortBy.field === "updated_at") {
+                a = new Date(repo1.updated_at);
+                b = new Date(repo2.updated_at);
+            }
+
+            if (a > b) {
+                return 1;
+            };
+
+            if (a < b) {
+                return -1;
+            };
+
+            return 0;
+
+        });
+    }
+    
+    return filteredRepos
         .map( ({name, updated_at, description, html_url}) => {
             const tr = document.createElement("tr");
             
@@ -123,14 +123,14 @@ function createTable(data) {
     table.append(thead, tbody);
     
     const headers = ["Name", "Description", "Link", "Updated At"]
-    .map(header => {
-        const th = document.createElement("th");
-        th.innerText = header;
-        return th;
-    });
+        .map(header => {
+            const th = document.createElement("th");
+            th.innerText = header;
+            return th;
+        });
 
     thead.append(...headers);
-    const trows = convertTotableRows(data);
+    const trows = convertReposToTableRows(data);
     
 
     tbody.append(...trows);
