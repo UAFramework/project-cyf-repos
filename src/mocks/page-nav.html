@@ -3,7 +3,7 @@
         <link rel="stylesheet" type="text/css" href="./common.css">
     </head>
     <style>
-        #search-container {
+        #page-nav {
             max-width: 50%;
             max-height: 80%;
             min-width: 50em;
@@ -11,20 +11,20 @@
             align-items: center;
             justify-content: center;
             border: solid 1px #aaa;
+            padding: 0.5em
         }
 
-        input {
-            min-width: 40em;
-            margin: 0.5em 0.5em;
+        #page-nav > a {
+            margin: 0 0.3em;
         }
-
     </style>
 
     <body>
         <div id="root">
-            <div id="search-container">
-                <input type="text" placeholder="Type to search and hit Enter"></input>
-                <button id="search-button">Search</button>
+            <div id="page-nav">
+                <a href="#">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
             </div>
         </div>
     </body>

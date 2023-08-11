@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="./common.css">
+    </head>
+    <style>
+        #sort-and-pagination-container {
+            max-width: 50%;
+            max-height: 80%;
+            min-width: 50em;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            border: solid 1px #aaa;
+        }
+
+        select[name="sort-by"] {
+            min-width: 20em;
+            max-width: 30em;
+            margin: 0 0.5em;
+        }
+
+        select[name="pagination"] {
+            min-width: 5em;
+            max-width: 10em;
+            margin: 0 0.5em;
+        }
+
+        #sort-and-pagination-container > label {
+            margin: 0.5em 0.5em;
+        }
+
+    </style>
+
+    <body>
+        <div id="root">
+            <div id="sort-and-pagination-container">
+                <label>
+                    Sort By: 
+                    <select name="sort-by">
+                        <option value="name">Name</option>
+                        <option value="updated_at">Updated At</option>
+                    </select>
+                    <button value="asc">A-Z &darr;</button>
+                </label>
+
+                <!-- 
+                    <button value="desc">Z-A &uarr;</button>
+                    
+                    more here:
+                    https://www.w3schools.com/charsets/ref_utf_arrows.asp
+                -->
+                <label>
+                    Reconds on page: 
+                    <select name="pagination">
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                </label>
+            </div>
+        </div>
+    </body>
+</html>
