@@ -64,16 +64,31 @@ We can decompose the implementation in 4 stages as below:
             <br />
             <img src="./Level-3-view.png" />
         </p>
+        <p>
+            Your applicatin at this point shold have this structure:
+            <br/>
+            <img src="./Level-3-structure.png" />
+            <br/>
+            <i>This is an example for guidance only. You might come up with a better idea, though ;)</i>
+        </p>
     </li> 
     <li>
         <b>Level 4</b>
         <p>
             Implement pagination functionality. There should be a drop down select element with a multiple available options for the number of table rows on the page: `10`, `20`, `50`, `100`. If you implement pagination, please add also page control element at the bottom of the page with links `next`, `previous`, `1`, `2`, `3`, etc...
+            <br/>
         </p>
         <p>
             Here is the mock:
             <br />
             <img src="./Level-4-view.png"/>
+        </p>
+        <p>
+            Your applicatin at this point shold have this structure:
+            <br/>
+            <img src="./Level-4-structure.png" />
+            <br/>
+            <i>This is an example for guidance only. You might come up with a better idea, though ;)</i>
         </p>
     </li>
 </ul>
